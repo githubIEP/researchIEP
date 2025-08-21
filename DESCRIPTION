@@ -1,8 +1,8 @@
 Package: researchIEP
-Title: What the Package Does (One Line, Title Case)
+Title: Commons functions for the IEP research team
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+    person("Thomas", "Morgan", , "tmorgan@economicsandpeae.org", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
