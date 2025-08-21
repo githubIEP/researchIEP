@@ -50,7 +50,7 @@ IEP_ProjectFolders <- function(base_path = getwd(), type = "simple", project_nam
   simple_folders <- list(
     "01_documentation" = NULL,
     "02_data" = c("raw", "processed"),
-    "03_scripts" = c("1_cleaning", "2_analysis"),
+    "03_scripts" = c("01_cleaning", "02_analysis"),
     "04_outputs" = NULL
   )
   
