@@ -57,10 +57,5 @@
 #' IEP_LibraryLoader(tidyverse, ggplot2, scales)  # Load packages
 #' }
 #'
-#' @docType package
-#' @name researchIEP
-#' @aliases researchIEP-package
-#'
-#' @author Institute for Economics and Peace
-#' @references \url{https://www.economicsandpeace.org}
-NULL
+#' @keywords internal
+"_PACKAGE"
