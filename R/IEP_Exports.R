@@ -1,5 +1,12 @@
-#-------------------------------------------------------------------------------
-# IEP_Chartbook: Creates the chartbook
+#' Create Excel Chartbook
+#'
+#' Creates a new Excel workbook for chartbook purposes with a default worksheet.
+#'
+#' @param filepath Character. Path where the chartbook file should be saved.
+#'
+#' @return An Excel workbook object
+#' @export
+#' @importFrom openxlsx createWorkbook addWorksheet saveWorkbook
 IEP_Chartbook <- function(filepath) {
 
   require(openxlsx)
@@ -10,8 +17,16 @@ IEP_Chartbook <- function(filepath) {
   }
 }
 
-#-------------------------------------------------------------------------------
-# IEP_Sheet: Creates a new sheet in the chartbook in the appropriate format
+#' Create Formatted Sheet in Chartbook
+#'
+#' Creates a new worksheet in the chartbook with IEP formatting and adds chart metadata.
+#'
+#' @param workbook An Excel workbook object created by IEP_Chartbook
+#' @param chart_name Named vector containing chart metadata with elements: sheet, title, xtext, ytext, source
+#'
+#' @return Invisibly returns NULL (modifies workbook in place)
+#' @export
+#' @importFrom openxlsx addWorksheet createStyle addStyle setColWidths writeData sheets
 IEP_Sheet <- function(workbook, chart_name) {
   
   require(openxlsx)
@@ -47,23 +62,52 @@ IEP_Sheet <- function(workbook, chart_name) {
   
 }
 
-#-------------------------------------------------------------------------------
-# IEP_SheetData: Add data to the chart book
+#' Add Data to Chartbook Sheet
+#'
+#' Adds a data frame to the specified worksheet in the chartbook.
+#'
+#' @param df Data frame to add to the worksheet
+#' @param workbook An Excel workbook object
+#' @param chart_info Named vector containing chart metadata with sheet element
+#'
+#' @return Invisibly returns NULL (modifies workbook in place)
+#' @export
+#' @importFrom openxlsx writeData
 IEP_SheetData <- function(df, workbook, chart_info) {
   require(openxlsx)
   writeData(workbook, sheet = chart_info["sheet"], 
             x = df, startCol = 3, startRow = 9)
 }
 
-#-------------------------------------------------------------------------------
-# IEP_SheetImage: Copies an image of the chart to the worksheet as a reference
+#' Add Chart Image to Worksheet
+#'
+#' Inserts a PNG image of the chart into the specified worksheet as a reference.
+#'
+#' @param workbook An Excel workbook object
+#' @param chart_info Named vector containing chart metadata with sheet element
+#'
+#' @return Invisibly returns NULL (modifies workbook in place)
+#' @export
+#' @importFrom openxlsx insertImage
 IEP_SheetImage <- function(workbook, chart_info) {
   require(openxlsx)
   insertImage(workbook,chart_info[["sheet"]],paste0(IMAGE_FILES,"/",chart_info[["sheet"]],"_small.png"),
               startRow = 9, startCol = 10)
 }
 
-## -- IEP_ProjectExport ----------------------------------------------------------
+#' Export Project Charts and Tables
+#'
+#' Processes a list of charts/tables and exports them to the chartbook with proper numbering and formatting.
+#'
+#' @param section Character. Section identifier for numbering (e.g., "1", "2", "A")
+#' @param workbook An Excel workbook object
+#' @param spreadsheet Character. Path to save the final workbook
+#' @param chartlist Character vector of chart/table variable names to process
+#'
+#' @return Invisibly returns NULL (saves workbook and updates global counters)
+#' @export
+#' @importFrom openxlsx saveWorkbook
+#' @importFrom rio export
 IEP_ProjectExport <- function(section, workbook, spreadsheet, chartlist) {
   
   require(openxlsx)
