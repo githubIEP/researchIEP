@@ -63,6 +63,4 @@
 #'
 #' @author Institute for Economics and Peace
 #' @references \url{https://www.economicsandpeace.org}
-#' 
-#' @keywords internal
 NULL
