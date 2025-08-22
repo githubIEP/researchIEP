@@ -65,4 +65,4 @@
 #' @references \url{https://www.economicsandpeace.org}
 #' 
 #' @keywords internal
-"_PACKAGE"
+NULL
