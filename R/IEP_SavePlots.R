@@ -1,4 +1,4 @@
-r#' Save Plots in Multiple Formats and Sizes
+#' Save Plots in Multiple Formats and Sizes
 #'
 #' Saves plots (charts, maps, or diagrams) in both PNG and SVG formats across 
 #' three standard sizes (small, medium, large) to designated output directories.
