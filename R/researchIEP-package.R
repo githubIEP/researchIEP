@@ -7,8 +7,8 @@
 #' @section Main Functions:
 #' \itemize{
 #'   \item \code{\link{IEP_ProjectFolders}}: Create standardized project structure
-#'   \item \code{IEP_LibraryLoader}: Load multiple packages efficiently
-#'   \item \code{IEP_ChartTheme}: Apply IEP chart styling
+#'   \item \code{\link{IEP_LibraryLoader}}: Load multiple packages efficiently
+#'   \item \code{\link{IEP_ChartTheme}}: Apply IEP chart styling
 #' }
 #'
 #' @section Getting Started:
